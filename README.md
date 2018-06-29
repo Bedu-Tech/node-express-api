@@ -10,7 +10,7 @@ $ npm i
 $ npm start
 ```
 
-### Production
+### Production
 ```sh
 # Install dependencies
 $ npm i
