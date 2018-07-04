@@ -1,5 +1,6 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { ProductService } from './product.service';
+import { CreateRequest } from './dto/create-request.dto';
 
 @Controller('product')
 export class ProductController {
@@ -8,9 +9,7 @@ export class ProductController {
   ) {}
 
   @Post()
-  async create(@Body() request: any) {
-    return {
-      message: 'Product created!',
-    };
+  async create(@Body() request: CreateRequest) {
+    return await this.productService.create(request);
   }
 }
