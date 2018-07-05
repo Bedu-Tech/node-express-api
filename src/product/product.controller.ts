@@ -12,16 +12,16 @@ export class ProductController {
   ) {}
 
   @Get()
-  async findAll (): Promise<Product[]> {
-    return await this.productService.findAll()
+  async findAll(): Promise<Product[]> {
+    return await this.productService.findAll();
   }
 
   @Get(':id')
-  async findOne (@Param('id') id: string) {
+  async findOne(@Param('id') id: string) {
     if (!Types.ObjectId.isValid(id)) {
-      throw new HttpException('NOT_VALID_OBJECT_ID', HttpStatus.BAD_REQUEST)
+      throw new HttpException('NOT_VALID_OBJECT_ID', HttpStatus.BAD_REQUEST);
     }
-    return await this.productService.find(id)
+    return await this.productService.find(id);
   }
 
   @Post()
@@ -32,14 +32,14 @@ export class ProductController {
   @Patch(':id')
   async update(@Param('id') id: string, @Body() request: UpdateRequest) {
     if (!Types.ObjectId.isValid(id)) {
-      throw new HttpException('NOT_VALID_OBJECT_ID', HttpStatus.BAD_REQUEST)
+      throw new HttpException('NOT_VALID_OBJECT_ID', HttpStatus.BAD_REQUEST);
     }
-    return await this.productService.update(id, request)
+    return await this.productService.update(id, request);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    await this.productService.remove(id)
-    return
+    await this.productService.remove(id);
+    return;
   }
 }

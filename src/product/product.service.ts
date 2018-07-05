@@ -12,26 +12,26 @@ export class ProductService {
     private readonly productModel: Model<Product>,
   ) {}
 
-  async create (createProductDto: CreateRequest): Promise<Product> {
+  async create(createProductDto: CreateRequest): Promise<Product> {
     const createdProduct = new this.productModel(createProductDto);
     return await createdProduct.save();
   }
 
-  async findAll (): Promise<Product[]> {
+  async findAll(): Promise<Product[]> {
     return await this.productModel.find().exec();
   }
 
-  async find (id: string): Promise<Product> {
+  async find(id: string): Promise<Product> {
     return await this.productModel.findById(id).exec();
   }
 
-  async update (id: string, updateProductDto: UpdateRequest): Promise<Product> {
+  async update(id: string, updateProductDto: UpdateRequest): Promise<Product> {
     return this.productModel.findByIdAndUpdate(id, {
-      ...updateProductDto
-    }, { new: true }).exec()
+      ...updateProductDto,
+    }, { new: true }).exec();
   }
 
-  async remove (id: string): Promise<any> {
-    return this.productModel.findByIdAndRemove(id).exec()
+  async remove(id: string): Promise<any> {
+    return this.productModel.findByIdAndRemove(id).exec();
   }
 }
