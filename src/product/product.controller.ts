@@ -4,7 +4,7 @@ import { CreateRequest } from './dto/create-request.dto';
 import { Product } from './interfaces/product.interface';
 import { Types } from 'mongoose';
 import { UpdateRequest } from './dto/update-request.dto';
-import { AuthGuard } from '../../node_modules/@nestjs/passport';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('product')
 export class ProductController {
